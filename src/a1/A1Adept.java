@@ -55,9 +55,9 @@ public class A1Adept {
 		int minIndex = minIndex(totCost);
 		int maxIndex = maxIndex(totCost);
 		
-		System.out.printf("Biggest: " + fName[maxIndex] + " " + lName[maxIndex] + " (%.2f)\n",totCost[maxIndex]);
+		System.out.printf("Biggest: " + fName[maxIndex] + " " + lName[maxIndex] + " (%.2f)\n", totCost[maxIndex]);
 		System.out.printf("Smallest: " + fName[minIndex] + " " + lName[minIndex] + " (%.2f)\n", totCost[minIndex]);
-		System.out.printf("Average: %.2f", avg(totCost));
+		System.out.printf("Average: %.2f\n", avg(totCost));
 	}
 	
 	/* minIndex()
