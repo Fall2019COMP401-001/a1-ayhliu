@@ -11,18 +11,16 @@ public class A1Jedi {
 		// storeItemCount is the count of item types in store.
 		int storeItemCount = scan.nextInt();
 
+		// itemCustFreq is the frequency of customers that purchase an item.
+		// itemBuyFreq is the frequency of purchase of an item.
 		String[] itemName = new String[storeItemCount];
 		double[] itemPrice = new double[storeItemCount];
-		
-		// itemCustFreq is the frequency of customers that purchase an item.
 		int[] itemCustFreq = new int[storeItemCount];
-		// itemBuyFreq is the frequency of purchase of an item.
 		int[] itemBuyFreq = new int[storeItemCount];
 		
 		for (int i = 0; i < storeItemCount; i++) {
 			itemName[i] = scan.next();
 			itemPrice[i] = scan.nextDouble();
-			itemCustFreq[i] = 0;
 		}
 		
 		int custCount = scan.nextInt();
@@ -43,15 +41,25 @@ public class A1Jedi {
 			int[] custItemFreq = new int[custItemCount];
 			String[] custItemName = new String[custItemCount];
 			
+			// custItemBuy is true if this customer purchased this item.
+			boolean[] custItemBuy = new boolean[storeItemCount];
+			
 			for (int j = 0; j < custItemCount; j++) {
 				custItemFreq[j] = scan.nextInt();
 				custItemName[j] = scan.next();
 				
 				// Find the index of this item in store.
 				int itemIndex = java.util.Arrays.asList(itemName).indexOf(custItemName[j]);
-
-				itemCustFreq[itemIndex]++;
+				
+				custItemBuy[itemIndex] = true;
 				itemBuyFreq[itemIndex] += custItemFreq[j];
+			}
+			
+			// Increment the frequency of customers that purchase an item if this item is purchased by this customer.
+			for (int j = 0; j < storeItemCount; j++) {
+				if (custItemBuy[j]) {
+					itemCustFreq[j]++;
+				}
 			}
 		}
 		
