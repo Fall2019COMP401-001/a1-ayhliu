@@ -8,29 +8,33 @@ public class A1Novice {
 		
 		Scanner scan = new Scanner(System.in);
 		
+		// Store the total count of customers.
 		int custCount = scan.nextInt();
 		
-		// Declare the properties of customers.
+		// Create an array to store first names.
+		// Create an array to store last names.
+		// Create an array to store customers' total costs of purchase.
 		String[] fName = new String[custCount];
 		String[] lName = new String[custCount];
 		double[] totCost = new double[custCount];
 		
 		for (int i = 0; i < custCount; i++) {
 			
-			// Assign values to the properties of this customer.
 			fName[i] = scan.next();
 			lName[i] = scan.next();
-			
+
+			// Store the total count of items to purchase.
 			int itemCount = scan.nextInt();
-			
-			// Declare the properties of items.
+
+			// Create an array to store item purchase quantities.
+			// Create an array to store item names.
+			// Create an array to store item prices.
 			int[] itemFreq = new int[itemCount];
 			String[] itemName = new String[itemCount];
 			double[] itemPrice = new double[itemCount];
 			
 			for (int j = 0; j < itemCount; j++) {
 				
-				// Assign values to the properties of this item.
 				itemFreq[j] = scan.nextInt();
 				itemName[j] = scan.next();
 				itemPrice[j] = scan.nextDouble();

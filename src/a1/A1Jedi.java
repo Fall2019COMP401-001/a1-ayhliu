@@ -8,11 +8,13 @@ public class A1Jedi {
 		
 		Scanner scan = new Scanner(System.in);
 		
-		// storeItemCount is the count of item types in store.
+		// Store the total count of items in store.
 		int storeItemCount = scan.nextInt();
-
-		// itemCustFreq is the frequency of customers that purchase an item.
-		// itemBuyFreq is the frequency of purchase of an item.
+		
+		// Create an array to store item names.
+		// Create an array to store item prices.
+		// Create an array to store the total count of customers that purchase the item.
+		// Create an array to store the total count of purchase of the item.
 		String[] itemName = new String[storeItemCount];
 		double[] itemPrice = new double[storeItemCount];
 		int[] itemCustFreq = new int[storeItemCount];
@@ -23,39 +25,41 @@ public class A1Jedi {
 			itemPrice[i] = scan.nextDouble();
 		}
 		
+		// Store the total count of customers.
 		int custCount = scan.nextInt();
 		
-		// Declare the properties of customers.
+		// Create an array to store first names.
+		// Create an array to store last names.
 		String[] fName = new String[custCount];
 		String[] lName = new String[custCount];
 		
 		for (int i = 0; i < custCount; i++) {
 			
-			// Assign values to the properties of this customer.
 			fName[i] = scan.next();
 			lName[i] = scan.next();
 			
+			// Store the total count of items to purchase.
 			int custItemCount = scan.nextInt();
 			
-			// Declare the properties of the customer's shopping items.
 			int[] custItemFreq = new int[custItemCount];
 			String[] custItemName = new String[custItemCount];
-			
-			// custItemBuy is true if this customer purchased this item.
+
+			// Store the purchase items with truth values.
 			boolean[] custItemBuy = new boolean[storeItemCount];
 			
 			for (int j = 0; j < custItemCount; j++) {
 				custItemFreq[j] = scan.nextInt();
 				custItemName[j] = scan.next();
 				
-				// Find the index of this item in store.
+				// Find the index of this item from store.
 				int itemIndex = java.util.Arrays.asList(itemName).indexOf(custItemName[j]);
 				
 				custItemBuy[itemIndex] = true;
 				itemBuyFreq[itemIndex] += custItemFreq[j];
 			}
 			
-			// Increment the frequency of customers that purchase an item if this item is purchased by this customer.
+			// Increment the total count of customers that purchase this item,
+			// if this item is in the purchase.
 			for (int j = 0; j < storeItemCount; j++) {
 				if (custItemBuy[j]) {
 					itemCustFreq[j]++;
@@ -67,7 +71,7 @@ public class A1Jedi {
 		
 		for (int i = 0; i < storeItemCount; i++) {
 			
-			// Use unique grammar if none of the item is bought.
+			// Use unique grammar if there is no purchase of this item.
 			if (itemCustFreq[i] == 0) {
 				System.out.println("No customers bought " + itemName[i]);
 			} else {

@@ -8,34 +8,39 @@ public class A1Adept {
 		
 		Scanner scan = new Scanner(System.in);
 		
+		// Store the total count of items in store.
 		int storeItemCount = scan.nextInt();
-
-		// Declare the properties of items.
+		
+		// Create an array to store item names.
+		// Create an array to store item prices.
 		String[] itemName = new String[storeItemCount];
 		double[] itemPrice = new double[storeItemCount];
 		
-		// Assign values to the properties of each item.
 		for (int i = 0; i < storeItemCount; i++) {
 			itemName[i] = scan.next();
 			itemPrice[i] = scan.nextDouble();
 		}
 		
+		// Store the total count of customers.
 		int custCount = scan.nextInt();
 		
-		// Declare the properties of customers.
+		// Create an array to store first names.
+		// Create an array to store last names.
+		// Create an array to store customers' total costs of purchase.
 		String[] fName = new String[custCount];
 		String[] lName = new String[custCount];
 		double[] totCost = new double[custCount];
 		
 		for (int i = 0; i < custCount; i++) {
 			
-			// Assign values to the properties of this customer.
 			fName[i] = scan.next();
 			lName[i] = scan.next();
 			
+			// Store the total count of items to purchase.
 			int custItemCount = scan.nextInt();
-			
-			// Declare the properties of the customer's shopping items.
+
+			// Create an array to store item purchase quantities.
+			// Create an array to store item names.
 			int[] custItemFreq = new int[custItemCount];
 			String[] custItemName = new String[custItemCount];
 			
@@ -43,7 +48,7 @@ public class A1Adept {
 				custItemFreq[j] = scan.nextInt();
 				custItemName[j] = scan.next();
 				
-				// Find the item index in store with matching name.
+				// Find the index of item from store.
 				int itemIndex = java.util.Arrays.asList(itemName).indexOf(custItemName[j]);
 				
 				totCost[i] += custItemFreq[j] * itemPrice[itemIndex];
@@ -60,57 +65,57 @@ public class A1Adept {
 		System.out.printf("Average: %.2f\n", avg(totCost));
 	}
 	
-	/* minIndex()
-	 * Finds the index of the minimum value in the array of double.
+	/* minIndex
+	 * Finds and returns the index of the minimum value in an array of doubles.
 	 * 
-	 * Input: Array of double.
-	 * Output: Index of the minimum value in the array of double.
-	 * Note: If multiple indices have the minimum value, then the smallest index is returned.
+	 * Input: Array of doubles arr.
+	 * 
+	 * Output: Index of the minimum value found within the array.
+	 * If multiple indices have this value, then the smallest index is returned.
 	 * 
 	 * Precondition: Array is not null.
 	 */
+	
 	static int minIndex(double[] arr) {
 		int minIndex = 0;
-		for (int i = 0; i < arr.length; i++) {
-			if (arr[i] < arr[minIndex]) {
+		for (int i = 0; i < arr.length; i++)
+			if (arr[i] < arr[minIndex])
 				minIndex = i;
-			}
-		}
 		return minIndex;
 	}
 	
-	/* maxIndex()
-	 * Finds the index of the maximum value in the array of double.
+	/* maxIndex
+	 * Finds and returns the index of the maximum value in an array of doubles.
 	 * 
-	 * Input: Array of double.
-	 * Output: Index of the maximum value in the array of double.
-	 * Note: If multiple indices have the maximum value, then the smallest index is returned.
+	 * Input: Array of doubles arr.
+	 * 
+	 * Output: Index of the maximum value found within the array.
+	 * If multiple indices have this value, then the smallest index is returned.
 	 * 
 	 * Precondition: Array is not null.
 	 */
+	
 	static int maxIndex(double[] arr) {
 		int maxIndex = 0;
-		for (int i = 0; i < arr.length; i++) {
-			if (arr[i] > arr[maxIndex]) {
+		for (int i = 0; i < arr.length; i++)
+			if (arr[i] > arr[maxIndex])
 				maxIndex = i;
-			}
-		}
 		return maxIndex;
 	}
 	
 	/* avg()
-	 * Finds the average value of the array of double.
+	 * Finds and returns the average value in an array of doubles.
 	 * 
 	 * Input: Array of double.
 	 * Output: Average value of the array of double.
 	 * 
 	 * Precondition: Array is not null.
 	 */
+	
 	static double avg(double[] arr) {
 		double sum = 0;
-		for (int i = 0; i < arr.length; i++) {
+		for (int i = 0; i < arr.length; i++)
 			sum += arr[i];
-		}
 		return sum / arr.length;
 	}
 }
